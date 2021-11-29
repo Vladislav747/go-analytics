@@ -8,7 +8,6 @@ import (
 	"net/http"
 
 	//"github.com/BurntSushi/toml"
-	"github.com/go-redis/redis"
 	"github.com/go-redis/redis/v8"
 	"github.com/rs/cors"
 	"golang.org/x/crypto/acme/autocert"
@@ -55,7 +54,7 @@ func Find(slice []string, val string) (int, bool) {
 
 func main() {
 	mux := http.NewServeMux()
-	corsMiddleware := cors.New(cors.options{
+	corsMiddleware := cors.New(cors.Options{
 		//AllowedOrigins: {`toml:"database_url"`},
 		AllowedOrigins: []string{`toml:"database_url"`},
 	})
